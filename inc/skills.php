@@ -18,7 +18,7 @@
 
 		      <aside>
 		      	<a href="<?php the_permalink(); ?>">
-		        	<span class="fa <?php echo get_post_meta(get_the_ID(), 'font-awesome', true); ?>"></span>
+		        	<span class="fa <?php echo esc_attr( get_post_meta(get_the_ID(), 'font-awesome', true) ); ?>"></span>
 		        	<h3><?php the_title(); ?></h3>
 		        	<?php the_excerpt(); ?>
 		        </a>

@@ -16,14 +16,14 @@
         <?php if (get_post_meta(get_the_ID(), 'live_demo', true)) { ?>
 		      <p class="demo-button">
 		      	
-	      		<a href="<?php echo get_post_meta(get_the_ID(), 'live_demo', true); ?>" target="_blank">View Site</a>
+	      		<a href="<?php echo esc_url( get_post_meta(get_the_ID(), 'live_demo', true) ); ?>" target="_blank">View Site</a>
 
 	      	<?php if (get_post_meta(get_the_ID(), 'download', true)) { ?>
-	      		<a href="<?php echo get_post_meta(get_the_ID(), 'download', true); ?>" target="_blank">View Code</a>
+	      		<a href="<?php echo esc_url( get_post_meta(get_the_ID(), 'download', true) ); ?>" target="_blank">View Code</a>
 	      	<?php } ?>
 
 	      	<?php if (get_post_meta(get_the_ID(), 'purchase', true)) { ?>
-	      		<a href="<?php echo get_post_meta(get_the_ID(), 'purchase', true); ?>" target="_blank">Purchase</a>
+	      		<a href="<?php echo esc_url( get_post_meta(get_the_ID(), 'purchase', true) ); ?>" target="_blank">Purchase</a>
 	      	<?php } ?>
 
 		      </p>
@@ -48,8 +48,8 @@
     <?php if (get_post_meta(get_the_ID(), 'testimonial', true)) { ?>
 	  	<section class="project-testimonial">
 	  		<div class="wrap">
-	  			<div class="title"><?php echo get_post_meta(get_the_ID(), 'title', true); ?></div>
-	  			<p><?php echo get_post_meta(get_the_ID(), 'testimonial', true); ?></p>
+	  			<div class="title"><?php echo esc_html( get_post_meta(get_the_ID(), 'title', true) ); ?></div>
+	  			<p><?php echo wp_kses_post( get_post_meta(get_the_ID(), 'testimonial', true) ); ?></p>
 	  		</div>
 	  	</section>
 	    <section class="wrap project-author">

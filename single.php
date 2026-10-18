@@ -36,20 +36,20 @@
 		          <?php echo parse_youtube_url($video,'embed'); ?>
 		        </figure>
 		    <?php } elseif (has_post_thumbnail()) { ?>
-		    	<figure class="project-img"><?php the_post_thumbnail('full', array('draggable' => 'false')); echo get_post(get_post_thumbnail_id())->post_excerpt; ?></figure>
+		    	<figure class="project-img"><?php the_post_thumbnail('full', array('draggable' => 'false')); echo wp_kses_post( wp_get_attachment_caption( get_post_thumbnail_id() ) ); ?></figure>
 		    <?php } ?>
 
 		    <?php if (get_post_meta(get_the_ID(), 'live_demo', true)) { ?>
 		      <p class="demo-button">
 
-	      		<a href="<?php echo get_post_meta(get_the_ID(), 'live_demo', true); ?>" target="_blank">Live Demo</a>
+	      		<a href="<?php echo esc_url( get_post_meta(get_the_ID(), 'live_demo', true) ); ?>" target="_blank">Live Demo</a>
 
 	      	<?php if (get_post_meta(get_the_ID(), 'download', true)) { ?>
-	      		<a href="<?php echo get_post_meta(get_the_ID(), 'download', true); ?>" target="_blank">Download</a>
+	      		<a href="<?php echo esc_url( get_post_meta(get_the_ID(), 'download', true) ); ?>" target="_blank">Download</a>
 	      	<?php } ?>
 
 	      	<?php if (get_post_meta(get_the_ID(), 'purchase', true)) { ?>
-	      		<a href="<?php echo get_post_meta(get_the_ID(), 'purchase', true); ?>" target="_blank">Purchase</a>
+	      		<a href="<?php echo esc_url( get_post_meta(get_the_ID(), 'purchase', true) ); ?>" target="_blank">Purchase</a>
 	      	<?php } ?>
 
 		      </p>
@@ -59,7 +59,7 @@
 
 		      <?php if (get_post_meta(get_the_ID(), 'post_intro', true)) { ?>
 		      	<aside class="post-intro">
-		      		<p><?php echo get_post_meta(get_the_ID(), 'post_intro', true); ?></p>
+		      		<p><?php echo wp_kses_post( get_post_meta(get_the_ID(), 'post_intro', true) ); ?></p>
 		      	</aside>
 		      <?php } ?>
 
